@@ -6,6 +6,20 @@ When searching the facility code API the following access patterns are considere
 
 We have opted to use defined patterns for accessing the data at the application level rather than an providing everything within the single GET method as querystrings, this is to define why the data is accessed inline with requirements to ensure they are addressed and allow better efficiency and cache opportunities for the database.
 
+Codes are currently provided by website search and excel files from the following code providers:
+
+## BIC (Bureau International des Containers) - Container Facility Database
+
+https://www.bic-code.org/locodes/
+
+This code list covers container facilities and locations where container related operations take place for example repair, storage, stuffing/de-stuffing.
+
+## SMDG - Terminal Code List 
+
+http://www.smdg.org
+
+This code list covers the sea container terminals that ships and vessels call at, the terminal code should denote the facilities of a terminal, but not the individual berth at the pier.			
+
 ## Find Details by Facility Code
 
 You have been given a facility code and need to find further details about this specific facility code or would like to check the specifics related to that code.  Search is by complete code only, no partials allowed.
