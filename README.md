@@ -1,6 +1,10 @@
 # Overview
 
+API swagger spec for the development of an API to cover the UN/LOCODE child codes of BIC and SMDG, in adherence with the DCSA TNT work.
+
 When searching the facility code API the following access patterns are considered to be covering the requirements of trade, if you have other suggestions and use cases please submit these via an issue for consideration.
+
+We have opted to use defined patterns for accessing the data at the application level rather than an providing everything within the single GET method as querystrings, this is to define why the data is accessed inline with requirements to ensure they are addressed and allow better efficiency and cache opportunities for the database.
 
 ## Find Details by Facility Code
 
