@@ -32,7 +32,7 @@ You can search in Name by a partial name or the complete name, as with most name
 
 You are looking for a facility in a specific country, and can search by providing the country code.  To filter the results to something more managable or useful it is recommended to include the code provider in the url.
 
-/facility/{countryCode}/{codeProvider}
+/facility/byCountry/{countryCode}/{codeProvider}
 
 i.e. 
 
