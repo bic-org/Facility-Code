@@ -36,8 +36,8 @@ You are looking for a facility in a specific country, and can search by providin
 
 i.e. 
 
-/facility/GB/BIC
-/facility/GB/SMDG
+* /facility/GB/BIC
+* /facility/GB/SMDG
 
 ## Find Facility by Location
 
