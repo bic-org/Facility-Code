@@ -4,8 +4,6 @@ API swagger spec for the development of an API to cover the UN/LOCODE child code
 
 When searching the facility code API the following access patterns are considered to be covering the requirements of trade, if you have other suggestions and use cases please submit these via an issue for consideration.
 
-We have opted to use defined patterns for accessing the data at the application level rather than an providing everything within the single GET method as querystrings, this is to define why the data is accessed inline with requirements to ensure they are addressed and allow better efficiency and cache opportunities for the database.
-
 Codes are currently provided by website search and excel files from the following code providers:
 
 ## BIC (Bureau International des Containers) - Container Facility Database
@@ -21,6 +19,10 @@ http://www.smdg.org
 This code list covers the sea container terminals that ships and vessels call at, the terminal code should denote the facilities of a terminal, but not the individual berth at the pier.			
 
 # API Functionality
+
+We have opted to use defined patterns for accessing the data at the application level rather than an providing everything within the single GET method as querystrings, this is to define why the data is accessed inline with requirements to ensure they are addressed and allow better efficiency and cache opportunities for the database.
+
+You must obtain an API key to use and access the data, the API is provided voluntariliy, to keep fair use and continuity the use of an API key allows us to monitor the usage, for large users of the API you may be better setting up to be a data subscriber which will allow you to operate your own local copy and receive the updates in real time keeping your version current and directing new code requests to the relvant code publishers.
 
 ## Find Details by Facility Code
 
