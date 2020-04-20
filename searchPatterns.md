@@ -6,7 +6,7 @@ When searching the facility code API the following access patterns are considere
 
 You have been given a facility code and need to find further details about this specific facility code or would like to check the specifics related to that code.  Search is by complete code only, no partials allowed.
 
-/facility/{facilityCode}
+`/facility/{facilityCode}`
 
 i.e. 
 
@@ -18,9 +18,9 @@ Will return details for a valid code, and only 1 result that matches the search 
 
 You know the name or partial name of a facility and wish to identify the correct facility code to use in your messages and/or update your internal systems.
 
-/facility/byName
+`/facility/byName`
 
-Pass the mandatory field for `Name` into the querystring.  
+Pass the mandatory field for **Name** into the querystring.  
 
 Optional field(s):
 * Country (ISO Country Code)
@@ -32,7 +32,7 @@ You can search in Name by a partial name or the complete name, as with most name
 
 You are looking for a facility in a specific country, and can search by providing the country code.  To filter the results to something more managable or useful it is recommended to include the code provider in the url.
 
-/facility/byCountry/{countryCode}/{codeProvider}
+`/facility/byCountry/{countryCode}/{codeProvider}`
 
 i.e. 
 
@@ -43,7 +43,7 @@ i.e.
 
 You are looking for a facility in a specific city, for a facility code provider 
 
-/facility/byLocation/{unLocode}/{codeProvider}
+`/facility/byLocation/{unLocode}/{codeProvider}`
 
 Please note that there may be a facility in the location you are searching for, however it may have been registered against a UNLOCODE that is either more specific or more generic than your search term.  For example searching in London (GBLON) is more generic than searching by the locale within London such as Westminster (GBWCI).
 
