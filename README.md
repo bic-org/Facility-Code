@@ -20,6 +20,8 @@ http://www.smdg.org
 
 This code list covers the sea container terminals that ships and vessels call at, the terminal code should denote the facilities of a terminal, but not the individual berth at the pier.			
 
+# API Functionality
+
 ## Find Details by Facility Code
 
 You have been given a facility code and need to find further details about this specific facility code or would like to check the specifics related to that code.  Search is by complete code only, no partials allowed.
