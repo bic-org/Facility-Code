@@ -38,14 +38,13 @@ Will return details for a valid code, and only 1 result that matches the search 
 
 ## Find Facility by Name
 
-You know the name or partial name of a facility and wish to identify the correct facility code to use in your messages and/or update your internal systems.
+You know the name or partial name of a facility and wish to identify the correct facility code to use in your messages and/or update your internal systems.  You must provide the country code that you wish to search within.
 
-`/facility/byName`
+`/facility/{countryCode}/byName`
 
 Pass the mandatory field for **Name** into the querystring.  
 
 Optional field(s):
-* Country (ISO Country Code)
 * Code Provider (SMDG or BIC)
 
 You can search in Name by a partial name or the complete name, as with most name and address fields you may find that the name is noted slightly differently to your search, it is better to stick to the official name of the company operating the facility rather than a short version or abbreviation.
