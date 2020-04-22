@@ -57,14 +57,19 @@ You are looking for a facility in a specific country, and can search by providin
 
 i.e. 
 
-* `/facility/GB/BIC`
-* `/facility/GB/SMDG`
+* `/facility/byCountry/GB/BIC`
+* `/facility/byCountry/GB/SMDG`
 
 ## Find Facility by Location
 
 You are looking for a facility in a specific city, for a facility code provider 
 
 `/facility/byLocation/{unLocode}/{codeProvider}`
+
+i.e.
+
+* `/facility/byLocation/DEHAM/BIC`
+* `/facility/byLocation/DEHAM/SMDG`
 
 Please note that there may be a facility in the location you are searching for, however it may have been registered against a UNLOCODE that is either more specific or more generic than your search term.  For example searching in London (GBLON) is more generic than searching by the locale within London such as Westminster (GBWCI).
 
