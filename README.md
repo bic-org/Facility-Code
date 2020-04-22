@@ -36,7 +36,7 @@ i.e.
 
 Will return details for a valid code, and only 1 result that matches the search criteria.
 
-## Find Facility by Name
+## Find Facility in Country by Name
 
 You know the name or partial name of a facility and wish to identify the correct facility code to use in your messages and/or update your internal systems.  You must provide the country code that you wish to search within.
 
