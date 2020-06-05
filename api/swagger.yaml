@@ -1,0 +1,212 @@
+openapi: 3.0.1
+info:
+  title: FacilityCodes
+  description: |-
+    A common API to provide the details of a facility used in international trade comprising of the BIC Container Facilities and SMDG Terminal Codes, these codes are managed under the ownership of each orgainsation independantly but provided under a single API to industry.
+    Bureau International des Containers (BIC) are responsible for providing the inland container facilities within a country, or location.
+    SMDG are responsible for providing the terminals that container vessels call at within a country or location.
+    Both codes are an extension of the UN/LOCODE designed to give granularity of facilities contained within the area identified by the UN/LOCODE.
+  version: 1.0.3
+servers:
+- url: https://a0c81nimq5.execute-api.eu-west-1.amazonaws.com/{basePath}
+  variables:
+    basePath:
+      default: BETA
+paths:
+  /facilities/byCountry/{countryCode}/{codeProvider}:
+    get:
+      parameters:
+      - name: countryCode
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: codeProvider
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          content: {}
+      security:
+      - api_key: []
+  /facilities/byName/{countryCode}:
+    get:
+      parameters:
+      - name: countryCode
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: name
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: codeProvider
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          content: {}
+      security:
+      - api_key: []
+  /facilities:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Facility'
+        required: true
+      responses:
+        "200":
+          description: 200 response
+          content: {}
+      security:
+      - AuthRequest: []
+      - api_key: []
+  /facilities/byLocation/{unLocode}/{codeProvider}:
+    get:
+      parameters:
+      - name: unLocode
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: codeProvider
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          content: {}
+      security:
+      - api_key: []
+  /facilities/{code}:
+    get:
+      parameters:
+      - name: code
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          content: {}
+      security:
+      - api_key: []
+components:
+  schemas:
+    Facility:
+      title: Facility
+      required:
+      - code
+      - codeProvider
+      - countryCode
+      - facility
+      - unLocode
+      type: object
+      properties:
+        code:
+          type: string
+          default: ""
+        codeProvider:
+          type: string
+          default: ""
+        countryCode:
+          type: string
+          default: ""
+        unLocode:
+          type: string
+          default: ""
+        facility:
+          $ref: '#/components/schemas/Facility_facility'
+    Facility_facility_address:
+      required:
+      - city
+      - country
+      - postcode
+      - state
+      - street
+      type: object
+      properties:
+        country:
+          type: string
+          default: ""
+        city:
+          type: string
+          default: ""
+        street:
+          type: string
+          default: ""
+        postcode:
+          type: string
+          default: ""
+        state:
+          type: string
+          default: ""
+    Facility_facility_geographicalCoordinate:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          type: string
+          default: ""
+        longitude:
+          type: string
+          default: ""
+    Facility_facility:
+      required:
+      - address
+      - formattedAddress
+      - geographicalCoordinate
+      - name
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Facility_facility_address'
+        formattedAddress:
+          type: string
+          default: ""
+        name:
+          type: string
+          default: ""
+        geographicalCoordinate:
+          $ref: '#/components/schemas/Facility_facility_geographicalCoordinate'
+  securitySchemes:
+    AuthRequest:
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: custom
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
