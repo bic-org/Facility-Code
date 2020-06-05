@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: FacilityCodes
+  title: Facility Codes
   description: |-
     A common API to provide the details of a facility used in international trade comprising of the BIC Container Facilities and SMDG Terminal Codes, these codes are managed under the ownership of each orgainsation independantly but provided under a single API to industry.
     Bureau International des Containers (BIC) are responsible for providing the inland container facilities within a country, or location.
