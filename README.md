@@ -1,6 +1,6 @@
 # Overview
 
-API swagger spec for the development of an API to cover the UN/LOCODE child codes of BIC and SMDG, in adherence with the DCSA TNT work.
+API swagger specification for the development of an API to cover the UN/LOCODE child codes of BIC and SMDG, in adherence with the DCSA TNT work.
 
 When searching the facility code API the following access patterns are considered to be covering the requirements of trade, if you have other suggestions and use cases please submit these via an issue for consideration.
 
