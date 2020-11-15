@@ -16,9 +16,7 @@ For more information visit https://www.bic-code.org/locodes/
 
 ## SMDG - Terminal Code List 
 
-http://www.smdg.org
-
-This code list covers the sea container terminals that ships and vessels call at, the terminal code should denote the facilities of a terminal, but not the individual berth at the pier.			
+The SMDG Terminal code list covers the sea container terminals that ships and vessels call at, the terminal code should denote the facilities of a terminal, but not the individual berth at the pier.			
 
 For more information visit http://www.smdg.org/smdg-code-lists/
 
