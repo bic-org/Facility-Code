@@ -1,0 +1,259 @@
+openapi: 3.0.1
+info:
+  title: Facility Codes
+  description: >-
+    A common API to provide the details of a facility used in International
+    trade comprising of the BIC Container Facilities and SMDG Terminal Codes,
+    these codes are managed under the ownership of each organisation
+    independently but provided under a single API to industry. Bureau
+    International des Containers (BIC) are responsible for providing the inland
+    container facilities within a country, or location. SMDG are responsible for
+    providing the terminals that container vessels call at within a country or
+    location. Both codes are an extension of the UN/LOCODE designed to give
+    granularity of facilities contained within the area identified by the
+    UN/LOCODE.  Both the BIC Facility Codes and the SMDG Terminal Codes are child codes of the UN/LOCODE, For further information and to request an API key visit the terms of service website for details.
+  termsOfService: https://www.bic-code.org/locodes/
+  version: 1.0.0
+  contact: 
+    name: BIC API Support
+    email: bic@bic-code.org
+    url: https://www.bic-code.org/locodes/
+externalDocs:
+  description: GitHub Documentation
+  url: https://github.com/bic-org/Facility-Code/
+servers:
+  - url: 'https://a0c81nimq5.execute-api.eu-west-1.amazonaws.com/{basePath}'
+    variables:
+      basePath:
+        default: BETA
+paths:
+  '/facilities/byCountry/{countryCode}/{codeProvider}':
+    get:
+      parameters:
+        - name: countryCode
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/ISO3166Code'
+        - name: codeProvider
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: 
+              - BIC
+              - SMDG
+      responses:
+        '200':
+          description: 200 response
+          content: {}
+      security:
+        - api_key: []
+  '/facilities/byName/{countryCode}':
+    get:
+      parameters:
+        - name: countryCode
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/ISO3166Code'
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: codeProvider
+          in: query
+          schema:
+            type: string
+            enum: 
+              - BIC
+              - SMDG
+      responses:
+        '200':
+          description: 200 response
+          content: {}
+      security:
+        - api_key: []
+  /facilities:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Facility'
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content: {}
+      security:
+        - AuthRequest: []
+        - api_key: []
+  '/facilities/byLocation/{unLocode}/{codeProvider}':
+    get:
+      parameters:
+        - name: unLocode
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: codeProvider
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: 
+              - BIC
+              - SMDG
+      responses:
+        '200':
+          description: 200 response
+          content: {}
+      security:
+        - api_key: []
+  '/facilities/{code}':
+    get:
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: codeProvider
+          in: query
+          schema:
+            type: string
+            enum: 
+              - BIC
+              - SMDG
+      responses:
+        '200':
+          description: 200 response
+          content: {}
+      security:
+        - api_key: []
+components:
+  schemas:
+    Facility:
+      title: Facility Schema
+      required:
+        - codeProvider
+        - countryCode
+        - facility
+        - unLocode
+      type: object
+      properties:
+        code:
+          title: Facility Code
+          type: string
+          description: "The unique code used for identifying the specific facility determined by the code list provider, this is the code which is used as a unique identifier in messages, for container facilities it should adhere to ISO 9897 standard."
+          minLength: 9
+          maxLength: 9
+        codeProvider:
+          title: Code List Provider
+          type: string
+          description: 'The organization managing the code list, either BIC or SMDG.'
+          enum:
+            - BIC
+            - SMDG
+        codeListProviderCode:
+          title: Code List Provider Code
+          type: string
+          description: "The code provided for the Facility by the code list provider. This code may not need be unique on its own, you should ALWAYS use the code as the unique identifier for a facility."
+        unLocode:
+          title: UN/LOCODE
+          maxLength: 5
+          minLength: 5
+          type: string
+          description: >-
+            The UN Location Code identifies a location in the sense of a city/a
+            town/a village, being the smaller administrative area existing as
+            defined by the competent national authority in each country.
+        countryCode:
+          $ref: '#/components/schemas/ISO3166Code'
+        facility:
+          title: Facility Detail
+          required:
+            - name
+            - address
+          type: object
+          properties:
+            name:
+              minLength: 1
+              maxLength: 70
+              type: string
+              description: The name of the facility.
+            address: 
+               $ref: '#/components/schemas/Address'
+            formattedAddress:
+              type: string
+              description: 'The Address in a single text field, formatted in the manner of a postal address'
+              maxLength: 255
+            geographicalCoordinate:
+              $ref: '#/components/schemas/GeographicalCoordinate'
+        operator:
+          required:
+            - name
+          type: object
+          properties:
+            name:
+              type: string
+              description: 'The operating company of the facility, this maybe a group company for example, or different to the facility name'
+        remarks:
+          type: string
+          description: 'Any remarks that are specific to the facility being returned provided by the code list provider.'
+          maxLength: 500
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          minLength: 1
+          maxLength: 70
+        city:
+          type: string
+          minLength: 1
+          maxLength: 35
+        postCode:
+          type: string
+          minLength: 1
+          maxLength: 9
+        country:
+          type: string
+          minLength: 2
+          maxLength: 2
+      required:
+        - street
+        - city
+        - postCode
+        - country  
+    GeographicalCoordinate:
+      description: A geographic location identifier
+      required:
+        - latitude
+        - longitude
+      type: object
+      properties:
+        latitude:
+          type: string
+          format: float
+          example: "35.7795897"
+        longitude:
+          type: string
+          format: float
+          example: "-78.6381787"
+    ISO3166Code:
+      $ref: >-
+        https://edi3.org/shared/openapi/ISO/codes.yml#/components/schemas/ISO3166_Code
+
+  securitySchemes:
+    AuthRequest:
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: custom
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
