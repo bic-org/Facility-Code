@@ -31,3 +31,7 @@ There is a Postman collection available to assist your integration work: [View t
 The BIC promote standardisation and harmonisation in the container shipping industry, and believe that the data should be available under a fair usage approach.  So we ask you when using our API’s to be responsible with your calls and usage so the API’s can remain openly available to all, if you require access that is maybe more demanding we have some options available and encourage you to contact us to discuss the best way forward instead of trying to be creative.
 
 The full T&C can be found at https://www.bic-code.org/locodes/
+
+# Issues or Use Cases 
+
+We welcome your use cases and feedback, to help us manage these effectively please raise an issue in GitHub Issues.
