@@ -12,7 +12,7 @@ Codes are respectively provided on the website of the code provider and are mana
 
 The BIC Facility Code provides a unique, harmonized code to identify container facilities where container related operations take place for example repair, storage, stuffing/de-stuffing.  Following a major harmonization project conducted in collaboration with the DCSA, the BIC Facility Code database now provides a unique identifier for over 11,000 facilities in 160 countries.   The vast majority of facilities in the database now include ‘enhanced’ data with a formatted street address and GPS co-ordinates.
 
-For more information visit https://www.bic-code.org/locodes/
+For more information visit https://www.bic-code.org/bic-facility-codes/
 
 ## SMDG - Terminal Code List 
 
@@ -30,7 +30,7 @@ There is a Postman collection available to assist your integration work: [View t
 
 The BIC promote standardisation and harmonisation in the container shipping industry, and believe that the data should be available under a fair usage approach.  So we ask you when using our API’s to be responsible with your calls and usage so the API’s can remain openly available to all, if you require access that is maybe more demanding we have some options available and encourage you to contact us to discuss the best way forward instead of trying to be creative.
 
-The full T&C can be found at https://www.bic-code.org/locodes/
+The full T&C can be found at https://www.bic-code.org/bic-facility-codes/
 
 # Issues or Use Cases 
 
