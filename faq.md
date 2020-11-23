@@ -3,9 +3,8 @@
 ### How do I Request a New Facility Code?
 
 For **BIC**
-There are 2 ways in which to request a new container facility code;
-* Head over to the BIC Facility Code website and fill in the code request form, useful for registering codes on an as needed basis.
-* Via the API using the `POST /facilities` endpoint, useful for when you create container facilities in your system and would like to automate the requests.  This functionality is restricted to authorised partners only, please contact us to request access to this feature.
+For BIC Container Facility Codes head over to the BIC Facility Code website and fill in the code request form visit https://www.bic-code.org/bic-facility-codes/
+
 
 BIC will assign a unique code for each facility, and checks will be taken to identify overlapping facility requests.
 
