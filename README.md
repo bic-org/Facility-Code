@@ -10,7 +10,7 @@ Codes are respectively provided on the website of the code provider and are mana
 
 ## BIC (Bureau International des Containers) - Container Facility Database
 
-The BIC Facility Code provides a unique, harmonized code to identify container facilities where container related operations take place for example repair, storage, stuffing/de-stuffing.  Following a major harmonization project conducted in collaboration with the DCSA, the BIC Facility Code database now provides a unique identifier for over 11,000 facilities in 160 countries.   The vast majority of facilities in the database now include ‘enhanced’ data with a formatted street address and GPS co-ordinates.
+The BIC Facility Code provides a unique, harmonized code to identify container facilities where container related operations take place for example repair, storage, stuffing/de-stuffing.  Following a major harmonization project conducted in collaboration with the DCSA, the BIC Facility Code database now provides a unique identifier for over 15,000 facilities in 160 countries.   The vast majority of facilities in the database now include ‘enhanced’ data with a formatted street address and GPS co-ordinates.
 
 For more information visit https://www.bic-code.org/bic-facility-codes/
 
