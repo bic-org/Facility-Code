@@ -39,3 +39,12 @@ The full T&C can be found at https://www.bic-code.org/bic-facility-codes/
 ## Issues, Support or Feature Requests
 
 We are always interested to hear your ideas for BIC Facility Codes, and to support your journey to integrating BIC Facility Codes into your systems. Please raise a github issue for us to manage these requests and we will be happy to assist. and hear from you.
+
+## Industry Usage and Press
+
+Please see attached to assist with understanding usage and support from within industry for use of the BIC Facility Code in messaging and container facility identification.
+
+* https://dcsa.org/resource/bic-and-dcsa-collaborate-to-standardise-container-facility-identification/
+* https://splash247.com/container-facilities-get-the-airport-code-touch/
+* https://smartmaritimenetwork.com/2021/03/23/bic-and-iana-collaborate-to-standardise-intermodal-facility-ids/
+* https://www.msc.com/arm/press/press-releases/2021-october/msc-becomes-first-major-carrier-to-fully-adopt-sta?lang=en-gb
