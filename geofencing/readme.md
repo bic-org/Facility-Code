@@ -45,7 +45,7 @@ Lessors, Shippers or others, to give a single source of truth.  The library is f
 
 There are 2 initiatives underway to improve the use of and definition of geofences in the supply chain
 
-1. Geofence Paper - this project is under UNECE and is to define geofencing and rules around definition, publication, nesting, and review.
+1. [Geofence Paper](https://uncefact.unece.org/display/uncefactpublic/Geofencing+Facilities) - this project is under UNECE and is to define geofencing and rules around definition, publication, nesting, and review.
 2. Geofence Review Panel - this is a BIC led initiative to provide a platform for consensus to an open review panel who can apply the rules and review geofences that have been submitted to the review tool against a given facility code, a convenor will apply the decision of the panel and publish or amend the submitted geofence making them publicly available via the API.
 
 Both of the above are open processes and everyone is welcome to participate.
