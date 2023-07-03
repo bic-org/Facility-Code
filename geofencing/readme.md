@@ -1,5 +1,7 @@
 # Geofencing Facilities
 
+> No single source of truth (platform for consensus) or agreed methodology for geofencing facilities in the supply chain exists.
+
 ## Background
 
 All facilities in the database relate to the following code list providers:
@@ -12,8 +14,6 @@ The codes have been used in UN/EDIFACT messages for many years, and more recentl
 The code lists are API accessible and following harmonisation with Ocean Carriers, Lessors and software providers the need for geofences to compliment the facility address and GPS has grown. 
 
 ## Why Geofencing
-
-> No single source of truth (platform for consensus) or agreed methodology for geofencing facilities in the supply chain exists.
 
 In response to industry demand and to support the wider adoption of smart container technologies, BIC is working
 with partners to expand the service to include geographical features (geo-fences), with the long-term aim of providing a
