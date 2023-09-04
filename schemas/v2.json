@@ -1,0 +1,903 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "BIC Facility Code Database",
+        "description": "The BIC Facility Code Database contains a unique identifier for over 17,000 facilities in 160 countries",
+        "termsOfService": "https://www.bic-code.org/api-terms-of-use/",
+        "version": "2.0.1",
+        "contact": {
+            "name": "BIC API Support",
+            "email": "bic@bic-code.org",
+            "url": "https://www.bic-code.org/facility-codes/"
+        }
+    },
+    "externalDocs": {
+        "description": "Facility Code Documentation",
+        "url": "https://github.com/bic-org/Facility-Code"
+    },
+    "servers": [
+        {
+            "url": "https://api.bic-code.org/uat-v2",
+            "description": "UAT Environment"
+        },
+        {
+            "url": "https://api.bic-code.org/v2",
+            "description": "Production Environment"
+        }
+    ],
+    "paths": {
+        "/oauth/token": {
+            "post": {
+                "summary": "Authenticate - Collect a token for authentication",
+                "tags": [
+                    "Authentication"
+                ],
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "accessToken": {
+                                            "description": "A JWT used for Authorization",
+                                            "type": "string",
+                                            "example": "eyJhbGciOiJIUzI1Ni"
+                                        },
+                                        "access_token": {
+                                            "description": "A JWT used for Authorization",
+                                            "type": "string",
+                                            "example": "eyJhbGciOiJIUzI1Ni"
+                                        },
+                                        "accessTokenExpiresAt": {
+                                            "description": "UTC datetime for token expiry",
+                                            "type": "string",
+                                            "example": "2023-08-01T10:15:02.847559+00:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "description": "Plain text explanation of issue",
+                                            "type": "string",
+                                            "example": "Invalid Authorization Header: Authorization Header Missing"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/facilities": {
+            "post": {
+                "summary": "Create - Generate a Facility",
+                "tags": [
+                    "Add Facility"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FacilityPost"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "parameters": [
+                    {
+                        "name": "Safe-Generate-Mode",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ],
+                            "example": "false"
+                        },
+                        "description": "Optional header for safe generate mode."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Post",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FacilityPatch"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            },
+            "patch": {
+                "summary": "Update - Change Facility Details",
+                "tags": [
+                    "Add Facility"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FacilityPatch"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Patch",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FacilityPatch"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "description": "Plain text explanation of issue",
+                                            "type": "string",
+                                            "example": "Facility code does not exist"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/facilities/{code}": {
+            "get": {
+                "summary": "Code - Find A Facility by its Provider Code",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "GBLIVJMDA"
+                        }
+                    },
+                    {
+                        "name": "codeProvider",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "example": "BIC"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Facility"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/facilities/byLocation/{unLocode}/{codeProvider}": {
+            "get": {
+                "summary": "UNLocode - Find Facilities By UNLocode and Code Provider",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "unLocode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "codeProvider",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Facility"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/facilities/byCountry/{countryCode}/{codeProvider}": {
+            "get": {
+                "summary": "Country - Find Facilities By Country Code and Code Provider",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "GB"
+                        }
+                    },
+                    {
+                        "name": "codeProvider",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "BIC"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Facility"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/facilities/byName/{countryCode}": {
+            "get": {
+                "summary": "Name - Find Facilities By Country Code and Name",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "GB"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "ACME Limited"
+                        }
+                    },
+                    {
+                        "name": "codeProvider",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "example": "BIC"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Facility"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/facilities/nearby": {
+            "get": {
+                "summary": "Nearby - Find Facilities By Latitude and Longitude",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": 40.7128
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": -74.006
+                        }
+                    },
+                    {
+                        "name": "countryCode",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "GB"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": 1000
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Facility": {
+                                                "$ref": "#/components/schemas/Facility"
+                                            },
+                                            "distanceKilometers": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "description": "The Facility's Distance in kilometers from the point provided in the request"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/facilities/geofence": {
+            "get": {
+                "summary": "Geofence - Use Latitude Longitude to determine if inside a Facility Geofence",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": 40.7128
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": -74.006
+                        }
+                    },
+                    {
+                        "name": "container_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "BICU1234561"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Facility": {
+                                                "$ref": "#/components/schemas/Facility"
+                                            },
+                                            "distanceKilometers": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "description": "The Facility's Distance in kilometers from the point provided in the request"
+                                            },
+                                            "inFacility": {
+                                                "type": "boolean",
+                                                "description": "A boolean value to indicate if point provided in request is inside the geofence"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/facilities/match": {},
+        "/facilities/search": {
+            "get": {
+                "summary": "Search - Use plain text in a Partial Search to find Facility",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "searchQuery",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Springfield Illinois 62704"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Facility"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "FacilityCode": {
+                "title": "Facility Code",
+                "type": "string",
+                "minLength": 8,
+                "maxLength": 13,
+                "example": "GBLIVJMDA"
+            },
+            "CodeProvider": {
+                "title": "Code Provider",
+                "type": "string",
+                "enum": [
+                    "BIC",
+                    "SMDG"
+                ],
+                "example": "BIC"
+            },
+            "CountryCode": {
+                "title": "Country Code",
+                "type": "string",
+                "maxLength": 2,
+                "minLength": 2,
+                "example": "GB"
+            },
+            "UnLocode": {
+                "title": "UN/LOCODE",
+                "type": "string",
+                "maxLength": 5,
+                "minLength": 5,
+                "example": "GBLIV"
+            },
+            "Operator": {
+                "title": "Operator",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "ACME Limited"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "Address": {
+                "type": "object",
+                "title": "Address Details",
+                "properties": {
+                    "country": {
+                        "title": "Country Name",
+                        "type": "string",
+                        "maxLength": 35,
+                        "minLength": 1,
+                        "example": "United States of America"
+                    },
+                    "city": {
+                        "title": "City Name",
+                        "type": "string",
+                        "maxLength": 35,
+                        "minLength": 1,
+                        "example": "Springfield"
+                    },
+                    "street": {
+                        "title": "Street Name",
+                        "type": "string",
+                        "maxLength": 70,
+                        "example": "123 Main St"
+                    },
+                    "postcode": {
+                        "title": "Post/Zip Code",
+                        "type": "string",
+                        "maxLength": 9,
+                        "example": "62704"
+                    },
+                    "state": {
+                        "title": "State or Equivalent Municipality",
+                        "type": "string",
+                        "maxLength": 35,
+                        "example": "Illinois"
+                    }
+                }
+            },
+            "GeographicalCoordinate": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "title": "Latitude Coordinate Value",
+                        "type": "string",
+                        "maxLength": 17,
+                        "minLength": 1,
+                        "example": "40.7128"
+                    },
+                    "longitude": {
+                        "title": "Longitude Coordinate Value",
+                        "type": "string",
+                        "maxLength": 17,
+                        "minLength": 1,
+                        "example": "-74.0060"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "GeographicalFeature": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "FeatureCollection"
+                        ]
+                    },
+                    "features": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Feature"
+                        }
+                    }
+                }
+            },
+            "AlternativeUnLocode": {
+                "type": "string",
+                "example": "GBLIV"
+            },
+            "CodeListProviderCode": {
+                "type": "string",
+                "example": "JMDA"
+            },
+            "FacilityDetails": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Facility Name",
+                        "type": "string",
+                        "maxLength": 70,
+                        "minLength": 1,
+                        "example": "ACME Limited"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "formattedAddress": {
+                        "title": "Formatted Address String",
+                        "type": "string",
+                        "example": "123 Main St, Springfield, Illinois, 62704, United States of America"
+                    },
+                    "geographicalCoordinate": {
+                        "$ref": "#/components/schemas/GeographicalCoordinate"
+                    },
+                    "geographicalFeature": {
+                        "$ref": "#/components/schemas/GeographicalFeature"
+                    }
+                }
+            },
+            "Facility": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/FacilityCode"
+                    },
+                    "aliasCode": {
+                        "$ref": "#/components/schemas/FacilityCode"
+                    },
+                    "codeProvider": {
+                        "$ref": "#/components/schemas/CodeProvider"
+                    },
+                    "countryCode": {
+                        "$ref": "#/components/schemas/CountryCode"
+                    },
+                    "unLocode": {
+                        "$ref": "#/components/schemas/UnLocode"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/Operator"
+                    },
+                    "facility": {
+                        "$ref": "#/components/schemas/FacilityDetails"
+                    },
+                    "alternativeUnLocode": {
+                        "$ref": "#/components/schemas/AlternativeUnLocode"
+                    },
+                    "codeListProviderCode": {
+                        "$ref": "#/components/schemas/CodeListProviderCode"
+                    }
+                },
+                "required": [
+                    "code",
+                    "codeProvider"
+                ]
+            },
+            "FacilityPost": {
+                "title": "Facility Post Schema",
+                "required": [
+                    "facility",
+                    "operator",
+                    "unLocode"
+                ],
+                "type": "object",
+                "properties": {
+                    "unLocode": {
+                        "$ref": "#/components/schemas/UnLocode"
+                    },
+                    "facility": {
+                        "$ref": "#/components/schemas/FacilityDetails"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/Operator"
+                    }
+                }
+            },
+            "FacilityPatch": {
+                "title": "Facility Patch Schema",
+                "type": "object",
+                "required": [
+                    "code",
+                    "codeProvider"
+                ],
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/FacilityCode"
+                    },
+                    "codeProvider": {
+                        "$ref": "#/components/schemas/CodeProvider"
+                    },
+                    "unLocode": {
+                        "$ref": "#/components/schemas/UnLocode"
+                    },
+                    "facility": {
+                        "$ref": "#/components/schemas/FacilityDetails"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/Operator"
+                    }
+                }
+            },
+            "FacilitiesMatch": {
+                "title": "Facility Match Schema",
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/FacilityCode"
+                    },
+                    "codeProvider": {
+                        "$ref": "#/components/schemas/CodeProvider"
+                    },
+                    "unLocode": {
+                        "$ref": "#/components/schemas/UnLocode"
+                    },
+                    "facility": {
+                        "$ref": "#/components/schemas/FacilityDetails"
+                    }
+                }
+            },
+            "Feature": {
+                "description": "GeoJSon 'Feature' object",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3.2"
+                },
+                "allOf": [
+                    {
+                        "type": "object",
+                        "required": [
+                            "geometry"
+                        ],
+                        "properties": {
+                            "geometry": {
+                                "oneOf": [
+                                    {
+                                        "description": "Polygon",
+                                        "externalDocs": {
+                                            "url": "https://tools.ietf.org/html/rfc7946#section-3.1.6"
+                                        },
+                                        "allOf": [
+                                            {
+                                                "type": "object",
+                                                "required": [
+                                                    "coordinates"
+                                                ],
+                                                "properties": {
+                                                    "coordinates": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "description": "A linear ring is a closed LineString with four or more positions. The first and last positions are equivalent, and they MUST contain identical values; their representation SHOULD also be identical. A linear ring is the boundary of a surface or the boundary of a hole in a surface. A linear ring MUST follow the right-hand rule with respect to the area it bounds, i.e., exterior rings are counterclockwise, and holes are clockwise.\n",
+                                                            "externalDocs": {
+                                                                "url": "https://tools.ietf.org/html/rfc7946#section-3.1.6"
+                                                            },
+                                                            "type": "array",
+                                                            "items": {
+                                                                "description": "GeoJSon fundamental geometry construct. A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element. Implementations SHOULD NOT extend positions beyond three elements because the semantics of extra elements are unspecified and ambiguous. Historically, some implementations have used a fourth element to carry a linear referencing measure (sometimes denoted as \"M\") or a numerical timestamp, but in most situations a parser will not be able to properly interpret these values. The interpretation and meaning of additional elements is beyond the scope of this specification, and additional elements MAY be ignored by parsers.\n",
+                                                                "externalDocs": {
+                                                                    "url": "https://tools.ietf.org/html/rfc7946#section-3.1.1"
+                                                                },
+                                                                "type": "array",
+                                                                "minItems": 2,
+                                                                "maxItems": 3,
+                                                                "items": {
+                                                                    "type": "number"
+                                                                }
+                                                            },
+                                                            "minItems": 4
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "properties": {
+                                "type": "object",
+                                "nullable": false
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "securitySchemes": {
+            "BFCAuthorizer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            },
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        }
+    }
+}
