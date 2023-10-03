@@ -1,0 +1,213 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -118.233398,
+                            33.816096
+                        ],
+                        [
+                            -118.232945,
+                            33.815942
+                        ],
+                        [
+                            -118.232907,
+                            33.816013
+                        ],
+                        [
+                            -118.232757,
+                            33.815995
+                        ],
+                        [
+                            -118.231947,
+                            33.818126
+                        ],
+                        [
+                            -118.231577,
+                            33.81916
+                        ],
+                        [
+                            -118.231054,
+                            33.820515
+                        ],
+                        [
+                            -118.230906,
+                            33.820916
+                        ],
+                        [
+                            -118.230816,
+                            33.821131
+                        ],
+                        [
+                            -118.230884,
+                            33.821155
+                        ],
+                        [
+                            -118.231287,
+                            33.820858
+                        ],
+                        [
+                            -118.231756,
+                            33.820501
+                        ],
+                        [
+                            -118.232188,
+                            33.819365
+                        ],
+                        [
+                            -118.232223,
+                            33.819231
+                        ],
+                        [
+                            -118.232258,
+                            33.819136
+                        ],
+                        [
+                            -118.232312,
+                            33.819026
+                        ],
+                        [
+                            -118.23266,
+                            33.818117
+                        ],
+                        [
+                            -118.233398,
+                            33.816096
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "code": "USLAXVNTU",
+                "codeProvider": "BIC",
+                "trustGrade": "FACILITY_PROVIDED",
+                "section": "1",
+                "category": "geofence",
+                "version": "2023-09-12",
+                "url": "https://www.bic-code.org/facility-codes/uslaxvntu/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -118.230853,
+                            33.821676
+                        ],
+                        [
+                            -118.230989,
+                            33.821613
+                        ],
+                        [
+                            -118.231237,
+                            33.82156
+                        ],
+                        [
+                            -118.23138,
+                            33.821554
+                        ],
+                        [
+                            -118.231701,
+                            33.82069
+                        ],
+                        [
+                            -118.231544,
+                            33.820773
+                        ],
+                        [
+                            -118.231483,
+                            33.820833
+                        ],
+                        [
+                            -118.231347,
+                            33.82094
+                        ],
+                        [
+                            -118.231231,
+                            33.821039
+                        ],
+                        [
+                            -118.231079,
+                            33.821183
+                        ],
+                        [
+                            -118.230962,
+                            33.821315
+                        ],
+                        [
+                            -118.230904,
+                            33.821416
+                        ],
+                        [
+                            -118.230855,
+                            33.821509
+                        ],
+                        [
+                            -118.230835,
+                            33.821679
+                        ],
+                        [
+                            -118.230853,
+                            33.821676
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "code": "USLAXVNTU",
+                "codeProvider": "BIC",
+                "trustGrade": "FACILITY_PROVIDED",
+                "section": "2",
+                "category": "geofence",
+                "version": "2023-09-12",
+                "url": "https://www.bic-code.org/facility-codes/uslaxvntu/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.232071,
+                    33.818743
+                ]
+            },
+            "properties": {
+                "code": "USLAXVNTU",
+                "codeProvider": "BIC",
+                "trustGrade": "FACILITY_PROVIDED",
+                "section": "1",
+                "category": "centroid",
+                "version": "2023-09-12",
+                "url": "https://www.bic-code.org/facility-codes/uslaxvntu/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.23115,
+                    33.821297
+                ]
+            },
+            "properties": {
+                "code": "USLAXVNTU",
+                "codeProvider": "BIC",
+                "trustGrade": "FACILITY_PROVIDED",
+                "section": "2",
+                "category": "centroid",
+                "version": "2023-09-12",
+                "url": "https://www.bic-code.org/facility-codes/uslaxvntu/"
+            }
+        }
+    ]
+}
