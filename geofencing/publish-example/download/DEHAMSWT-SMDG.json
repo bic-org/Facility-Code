@@ -1,0 +1,305 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            9.98722,
+                            53.537003
+                        ],
+                        [
+                            9.986039,
+                            53.535358
+                        ],
+                        [
+                            9.985567,
+                            53.535472
+                        ],
+                        [
+                            9.985453,
+                            53.53529
+                        ],
+                        [
+                            9.984995,
+                            53.531804
+                        ],
+                        [
+                            9.98473,
+                            53.531136
+                        ],
+                        [
+                            9.984967,
+                            53.53097
+                        ],
+                        [
+                            9.984838,
+                            53.529861
+                        ],
+                        [
+                            9.984666,
+                            53.529746
+                        ],
+                        [
+                            9.984623,
+                            53.528853
+                        ],
+                        [
+                            9.985992,
+                            53.528797
+                        ],
+                        [
+                            9.985965,
+                            53.528466
+                        ],
+                        [
+                            9.985841,
+                            53.528475
+                        ],
+                        [
+                            9.985804,
+                            53.52807
+                        ],
+                        [
+                            9.986138,
+                            53.527695
+                        ],
+                        [
+                            9.986722,
+                            53.527801
+                        ],
+                        [
+                            9.986898,
+                            53.5283
+                        ],
+                        [
+                            9.987553,
+                            53.528784
+                        ],
+                        [
+                            9.98773,
+                            53.529314
+                        ],
+                        [
+                            9.987955,
+                            53.530985
+                        ],
+                        [
+                            9.988234,
+                            53.53342
+                        ],
+                        [
+                            9.988647,
+                            53.536226
+                        ],
+                        [
+                            9.98766,
+                            53.536873
+                        ],
+                        [
+                            9.98722,
+                            53.537003
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "section": "1",
+                "code": "DEHAMSWT",
+                "category": "geofence",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            9.987176,
+                            53.53701
+                        ],
+                        [
+                            9.986844,
+                            53.537103
+                        ],
+                        [
+                            9.985585,
+                            53.535491
+                        ],
+                        [
+                            9.986009,
+                            53.535379
+                        ],
+                        [
+                            9.987176,
+                            53.53701
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "section": "2",
+                "code": "DEHAMSWT",
+                "category": "geofence",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            9.98868,
+                            53.536223
+                        ],
+                        [
+                            9.988014,
+                            53.531284
+                        ],
+                        [
+                            9.988457,
+                            53.531273
+                        ],
+                        [
+                            9.989119,
+                            53.536221
+                        ],
+                        [
+                            9.98868,
+                            53.536223
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "section": "3",
+                "code": "DEHAMSWT",
+                "category": "geofence",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            9.985416,
+                            53.535315
+                        ],
+                        [
+                            9.984968,
+                            53.535322
+                        ],
+                        [
+                            9.984557,
+                            53.531841
+                        ],
+                        [
+                            9.984968,
+                            53.531826
+                        ],
+                        [
+                            9.985416,
+                            53.535315
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "section": "4",
+                "code": "DEHAMSWT",
+                "category": "geofence",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.986311,
+                    53.531488
+                ]
+            },
+            "properties": {
+                "section": "1",
+                "code": "DEHAMSWT",
+                "category": "centroid",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.986558,
+                    53.536399
+                ]
+            },
+            "properties": {
+                "section": "2",
+                "code": "DEHAMSWT",
+                "category": "centroid",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.98859,
+                    53.534245
+                ]
+            },
+            "properties": {
+                "section": "3",
+                "code": "DEHAMSWT",
+                "category": "centroid",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.985065,
+                    53.533924
+                ]
+            },
+            "properties": {
+                "section": "4",
+                "code": "DEHAMSWT",
+                "category": "centroid",
+                "codeProvider": "SMDG",
+                "version": "2023-09-06",
+                "url": "https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/"
+            }
+        }
+    ]
+}
