@@ -795,9 +795,6 @@
                     "codeProvider": {
                         "$ref": "#/components/schemas/CodeProvider"
                     },
-                    "unLocode": {
-                        "$ref": "#/components/schemas/UnLocode"
-                    },
                     "facility": {
                         "$ref": "#/components/schemas/FacilityDetails"
                     },
