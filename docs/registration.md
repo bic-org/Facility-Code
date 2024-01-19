@@ -2,7 +2,7 @@
 
 The geofence library is open access and can be viewed by anyone by visiting the site, however if you wish to make a request for a geofence, or for a modification to an existing published geofence then you will need to register.
 
-To register you need to fill in the registration form at [https://portal.bic-code.org/sign-up/geofence](https://developer.bic-code.org/sign-up/geofence)
+To register you need to fill in the registration form at [https://portal.bic-code.org/sign-up/geofence](https://portal.bic-code.org/sign-up/geofence)
 
 <figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 14.27.42.png" alt=""><figcaption></figcaption></figure>
 
