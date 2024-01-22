@@ -1,125 +1,125 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -112.014236,
-                            40.756382
-                        ],
-                        [
-                            -112.013038,
-                            40.756408
-                        ],
-                        [
-                            -112.013,
-                            40.7557
-                        ],
-                        [
-                            -112.014,
-                            40.7557
-                        ],
-                        [
-                            -112.014,
-                            40.755
-                        ],
-                        [
-                            -112.011,
-                            40.755
-                        ],
-                        [
-                            -112.011,
-                            40.7556
-                        ],
-                        [
-                            -112.012116,
-                            40.756391
-                        ],
-                        [
-                            -112.012072,
-                            40.757618
-                        ],
-                        [
-                            -112.012096,
-                            40.758264
-                        ],
-                        [
-                            -112.011996,
-                            40.758574
-                        ],
-                        [
-                            -112.011906,
-                            40.758796
-                        ],
-                        [
-                            -112.011629,
-                            40.759095
-                        ],
-                        [
-                            -112.011458,
-                            40.759481
-                        ],
-                        [
-                            -112.011429,
-                            40.759952
-                        ],
-                        [
-                            -112.011366,
-                            40.760291
-                        ],
-                        [
-                            -112.013047,
-                            40.760273
-                        ],
-                        [
-                            -112.013024,
-                            40.758433
-                        ],
-                        [
-                            -112.014212,
-                            40.758435
-                        ],
-                        [
-                            -112.014214,
-                            40.75752
-                        ],
-                        [
-                            -112.014236,
-                            40.756382
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "trustGrade": "FACILITY_PROVIDED",
-                "code": "USSLCRSDA",
-                "category": "geofence",
-                "codeProvider": "BIC",
-                "version": "2023-09-12",
-                "url": "https://www.bic-code.org/facility-codes/usslcrsda/"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -112.012623,
-                    40.757585
-                ]
-            },
-            "properties": {
-                "trustGrade": "FACILITY_PROVIDED",
-                "code": "USSLCRSDA",
-                "category": "centroid",
-                "codeProvider": "BIC",
-                "version": "2023-09-12",
-                "url": "https://www.bic-code.org/facility-codes/usslcrsda/"
-            }
-        }
-    ]
+   "type":"FeatureCollection",
+   "features":[
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Polygon",
+            "coordinates":[
+               [
+                  [
+                     -112.014236,
+                     40.756382
+                  ],
+                  [
+                     -112.013038,
+                     40.756408
+                  ],
+                  [
+                     -112.013,
+                     40.7557
+                  ],
+                  [
+                     -112.014,
+                     40.7557
+                  ],
+                  [
+                     -112.014,
+                     40.755
+                  ],
+                  [
+                     -112.011,
+                     40.755
+                  ],
+                  [
+                     -112.011,
+                     40.7556
+                  ],
+                  [
+                     -112.012116,
+                     40.756391
+                  ],
+                  [
+                     -112.012072,
+                     40.757618
+                  ],
+                  [
+                     -112.012096,
+                     40.758264
+                  ],
+                  [
+                     -112.011996,
+                     40.758574
+                  ],
+                  [
+                     -112.011906,
+                     40.758796
+                  ],
+                  [
+                     -112.011629,
+                     40.759095
+                  ],
+                  [
+                     -112.011458,
+                     40.759481
+                  ],
+                  [
+                     -112.011429,
+                     40.759952
+                  ],
+                  [
+                     -112.011366,
+                     40.760291
+                  ],
+                  [
+                     -112.013047,
+                     40.760273
+                  ],
+                  [
+                     -112.013024,
+                     40.758433
+                  ],
+                  [
+                     -112.014212,
+                     40.758435
+                  ],
+                  [
+                     -112.014214,
+                     40.75752
+                  ],
+                  [
+                     -112.014236,
+                     40.756382
+                  ]
+               ]
+            ]
+         },
+         "properties":{
+            "trustGrade":"FACILITY_PROVIDED",
+            "code":"USSLCRSDA",
+            "category":"FACILITY",
+            "codeProvider":"BIC",
+            "version":"2024-01-22",
+            "url":"https://www.bic-code.org/facility-codes/usslcrsda/"
+         }
+      },
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -112.012623,
+               40.757585
+            ]
+         },
+         "properties":{
+            "trustGrade":"FACILITY_PROVIDED",
+            "code":"USSLCRSDA",
+            "category":"CENTROID",
+            "codeProvider":"BIC",
+            "version":"2024-01-22",
+            "url":"https://www.bic-code.org/facility-codes/usslcrsda/"
+         }
+      }
+   ]
 }
