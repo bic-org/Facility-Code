@@ -1,4 +1,4 @@
-# Rules for Geofencing
+# Global Container Geofence Library
 
 ### Defining Geofences
 
@@ -17,7 +17,7 @@ Each of the above families could have different definitions and uses for geofenc
 
 Heres an example outlining how BIC and SMDG facilities overlap within a port area, within Hamburg, SMDG have the Eurogate Terminal, within that terminal area there are two BIC Facilities (Eurokombi and SWOP Seaworth Packing)
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## BIC Facility Codes
 
@@ -36,7 +36,7 @@ For more information about BIC Facility Codes and geofencing or to access the AP
 
 Example of a BIC Facility Code in Liverpool, note the boundary of the facility doesn't ovelap with the one next door.  [View this example](https://geofence-review.bic-code.org/view-pending-request/BIC/GBLIVJMDA)
 
-<figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 17.44.28.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-10-30 at 17.44.28.png" alt=""><figcaption></figcaption></figure>
 
 ## SMDG Terminal Codes
 
@@ -56,4 +56,4 @@ For more information about SMDG Terminal Codes and geofencing or to access the A
 &#x20;Example of an SMDG Terminal in Los Angeles, note the berth area is its own polygon and separate to the land.  [View this example](https://geofence-review.bic-code.org/view-pending-request/SMDG/USLAXETS)\
 
 
-<figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 17.41.11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-10-30 at 17.41.11.png" alt=""><figcaption></figcaption></figure>

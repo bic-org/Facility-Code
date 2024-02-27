@@ -9,9 +9,6 @@
 ## Geofencing
 
 * [Introduction](geofencing/introduction.md)
-
-***
-
-* [Global Container Geofence Library](geofence-library.md)
-* [Registration](registration.md)
-* [Submit a Geofence Request](submit-a-geofence-request.md)
+* [Global Container Geofence Library](geofencing/geofence-library.md)
+* [Registration](geofencing/registration.md)
+* [Submit a Geofence Request](geofencing/submit-a-geofence-request.md)
