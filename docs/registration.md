@@ -2,6 +2,10 @@
 
 The geofence library is open access and can be viewed by anyone by visiting the site, however if you wish to make a request for a geofence, or for a modification to an existing published geofence then you will need to register.
 
+You can watch the walkthrough or follow the steps below to register an account
+
+{% embed url="https://youtu.be/DALlpKyjToc" %}
+
 To register you need to fill in the registration form at [https://portal.bic-code.org/sign-up/geofence](https://portal.bic-code.org/sign-up/geofence)
 
 <figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 14.27.42.png" alt=""><figcaption></figcaption></figure>
@@ -20,9 +24,9 @@ If for some reason you do not have permission to contribute geofences once logge
 
 You will see the 'Apply for Permissions' button on the site, click this
 
-<figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 14.31.21.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 14.31.21.png" alt="" width="305"><figcaption></figcaption></figure>
 
 You will see which permissions you have available to you, i.e. 'Contributor' if this is not shown then select from the drop down list and click submit.  You will receive an email confirmation on application.
 
-<figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 14.32.05.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 14.32.05.png" alt="" width="558"><figcaption></figcaption></figure>
 

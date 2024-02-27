@@ -9,6 +9,10 @@ Drawing a geofence from scratch is relatively straightforward, here are the step
 3. Create or edit a geofence
 4. Submit geofence request
 
+You can watch the video walkthrough where we create a geofence from scratch for a BIC facility, or follow the guide below
+
+{% embed url="https://youtu.be/RlGWmnAPcP8" %}
+
 ### Find your facility code
 
 First step is to know your facility code, this may already be known to you as a facility owner as its the code used in EDI gate messages.
@@ -40,13 +44,17 @@ After this section you will see a request form and link to geojson.io where you 
 
 <figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 17.07.46.png" alt=""><figcaption></figcaption></figure>
 
-Finalyl on the screen if there are any open source geofences nearby they will be shown at the bottom of the screen, you can copy the geojson to adjust rather than starting from scratch
+Finally on the screen if there are any open source geofences nearby they will be shown at the bottom of the screen, you can copy the geojson to adjust rather than starting from scratch
 
 <figure><img src=".gitbook/assets/Screenshot 2023-10-30 at 17.09.43.png" alt=""><figcaption></figcaption></figure>
 
 ### Create or edit a geofence
 
 If you wish to draw your own geofence from scratch, you can click the link to the `GEOJSON.IO` site under the heading **Draw Geofence** this will take you to the location on a map and you can use the polygon tool to start drawing to meet the requirements of the facility.
+
+Watch this walkthrough showing how to edit a geofence for an SMDG Terminal where we add a berth
+
+{% embed url="https://youtu.be/MQcH2jcHnW8" %}
 
 If there is an existing geofence provided from the community or from the 3rd party suggestions that needs adjustment you can click **copy geofence** and then head over to `GEOJSON.IO` where you can paste the geofence into the free text area on the right, as below.
 

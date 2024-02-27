@@ -12,6 +12,6 @@
 
 ***
 
-* [Rules for Geofencing](rules-for-geofencing.md)
+* [Global Container Geofence Library](geofence-library.md)
 * [Registration](registration.md)
 * [Submit a Geofence Request](submit-a-geofence-request.md)
