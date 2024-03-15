@@ -30,7 +30,7 @@ For large datasets that already have facility data its possible to do some harmo
 
 * `nearby` finds nearest facilities to a latitude/longitude for a given radius
 * `inGeofence` returns for a given latitude/longitude which facility geofence they are inside
-* `???` returns a free text search for all data based on the query provided, similar to google.
+* `search` returns a free text search for all data based on the query provided, similar to google.
 
 ## Step 2 - Embed the Global Container Geofence Library&#x20;
 
