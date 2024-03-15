@@ -22,7 +22,11 @@
   * [Road Examples](geofencing-best-practice/drawing-and-reviewing-geofences/road-examples.md)
   * [Truck Queue Examples](geofencing-best-practice/drawing-and-reviewing-geofences/truck-queue-examples.md)
 
-## Convenors Guide
+## Geofencing Convenors Guide
 
-* [Introduction](convenors-guide/introduction.md)
-* [Getting Started](convenors-guide/getting-started.md)
+* [Introduction](geofencing-convenors-guide/introduction.md)
+* [Getting Started](geofencing-convenors-guide/getting-started.md)
+
+## Adopting the Geofence Library
+
+* [Introduction](adopting-the-geofence-library/introduction.md)
