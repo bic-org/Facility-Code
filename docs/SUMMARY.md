@@ -24,8 +24,8 @@
 
 ## Geofencing Convenors Guide
 
-* [Introduction](geofencing-convenors-guide/introduction.md)
-* [Getting Started](geofencing-convenors-guide/getting-started.md)
+* [Introduction](convenors-guide/introduction.md)
+* [Getting Started](convenors-guide/getting-started.md)
 
 ## Adopting the Geofence Library
 

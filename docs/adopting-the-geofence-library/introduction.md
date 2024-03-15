@@ -55,3 +55,19 @@ The API is updated in realtime as geofences are approved during the review proce
 For software providers and carriers that want to download all 'geofence data' at the most current state from the library, we provide a private github repository that has a `.json` file for each facility along with some instructions to identify the BIC and SMDG files, the data is using the geojson format and contains meta data in the `properties` section to relate it to facility.  You can then use the API to retrieve the address details and other data attributes.
 
 To request GitHub access to the download of the Global Container Geofence Library [contact BIC](https://www.bic-code.org/contact/) .
+
+## Step 3 - Encourage use of the Tool&#x20;
+
+For software providers and IoT data providers rather than managing all geofences of common touch points it is logical to for the facilities covered by BIC and SMDG to support the growth of the library to encourage your customers to draw those geofences via the tool for the community, it supports the customer as they immediately benefit from the use of a collaborative library so are not starting from scratch, and by contributing back they support the wider growth and benefit from others doing the same for areas they have not yet geofenced.
+
+See the documentation provided here;
+
+* Introduction to the [Global Container Geofence Library ](../global-container-geofence-library/introduction.md)
+* [Register as a Contributor](../global-container-geofence-library/registration.md)&#x20;
+* [Submit a Geofence Request](../global-container-geofence-library/submit-a-geofence-request.md)&#x20;
+
+You should also consider asking them to request where they have contracted terminals and facilities to ask the facility to draw their own, this approach works really well for ocean carriers as they immediately start to see contributions coming from their partners, and for the facility they do this once rather than for each customer.
+
+## Step 4 - Promote your adoption of the Library
+
+Once you have embedded the library to your software and adopted its use, it makes sense to tell others about it via your marketing, sales or socials, please feel free to tag BIC and SMDG on LinkedIn or other social channels.
