@@ -21,3 +21,8 @@
   * [Railway Examples](geofencing-best-practice/drawing-and-reviewing-geofences/railway-examples.md)
   * [Road Examples](geofencing-best-practice/drawing-and-reviewing-geofences/road-examples.md)
   * [Truck Queue Examples](geofencing-best-practice/drawing-and-reviewing-geofences/truck-queue-examples.md)
+
+## Convenors Guide
+
+* [Introduction](convenors-guide/introduction.md)
+* [Getting Started](convenors-guide/getting-started.md)
