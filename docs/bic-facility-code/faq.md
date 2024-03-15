@@ -26,7 +26,7 @@ If a facility is known to be closed please report to [bic@bic-code.org](mailto:b
 
 Whilst we take care to remove duplicates or where facilities have been known by different names there are occasions where a facility maybe listed more than once, and there could be a reason for this where a different code is required for a different purposes, we do review the BFC list on a regular basis to minimise these occurrences.
 
-However if a facility appears to be duplicated in the code list please notify bic@bic-code.org and identify the two facility codes in question that point at the same facility.  They will be reviewed and one of the codes will follow the [alias procedure](bic-facility-code/alias-codes.md) which will remove it from the active facility code list. &#x20;
+However if a facility appears to be duplicated in the code list please notify bic@bic-code.org and identify the two facility codes in question that point at the same facility.  They will be reviewed and one of the codes will follow the [alias procedure](alias-codes.md) which will remove it from the active facility code list. &#x20;
 
 ####
 

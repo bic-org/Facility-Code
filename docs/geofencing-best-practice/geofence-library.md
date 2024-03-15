@@ -1,10 +1,8 @@
-# Global Container Geofence Library
-
-### Defining Geofences
+# Defining Geofences
 
 When creating and using geofences that are shared and used across multiple parties it’s important to have a clear definition that everyone agrees to and that for common facilities there is a single source of truth, to achieve this we need to define the geofence and rules for easy review and understanding.
 
-### Classification and Rules
+## Classification and Rules
 
 During the creation process of geofences, it is key to define specific guidelines based on the type of facility.  Organizations such as BIC and SMDG each have distinct rules for the facilities for which they provide codes. Recognizing this differentiation, we will categorize each entity as a distinct ‘family’ in our framework.
 
@@ -19,7 +17,7 @@ Heres an example outlining how BIC and SMDG facilities overlap within a port are
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-## BIC Facility Codes
+### BIC Facility Codes
 
 BIC provides a 9-character code which is based on the UNLOCODE for identifying container handling facilities globally.  This data is accessible via API and provides structured data for the facility covering the name, address, and geographic coordinates.  Ocean carriers use these codes in their internal systems for maintenance and repair, lease hire and providing detail in track and trace messages and communicating the pick-up and return depot with their customers. &#x20;
 
@@ -38,7 +36,7 @@ Example of a BIC Facility Code in Liverpool, note the boundary of the facility d
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-10-30 at 17.44.28.png" alt=""><figcaption></figcaption></figure>
 
-## SMDG Terminal Codes
+### SMDG Terminal Codes
 
 SMDG provide ocean terminal codes using up to 6-character reference extension to the UNLOCODE, this data is accessible from the SMDG website and available from a shared API hosted by BIC.&#x20;
 
@@ -57,3 +55,4 @@ For more information about SMDG Terminal Codes and geofencing or to access the A
 
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-10-30 at 17.41.11.png" alt=""><figcaption></figcaption></figure>
+

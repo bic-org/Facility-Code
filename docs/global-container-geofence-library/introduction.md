@@ -1,18 +1,33 @@
 # Introduction
 
+We are pleased to announce the Global Container Geofence Library - a collaborative platform allowing container facilities, ocean and rail terminals, carriers, IoT providers and other interested parties to jointly establish and integrate agreed geofence boundaries for facilities throughout the supply chain - enhancing security, standardization and sustainability.
+
+**The Geofence Library provides:**&#x20;
+
+* Version controlled geofences for Ocean Terminals and other Container Facilities
+* Relationship to the BIC Facility Code and SMDG Terminal Codes used in API EDIFACT message exchanges for container shipping.
+* A single platform for consensus, allowing the industry to collaboratively review and agree upon geofences through industry review panels.
+* The ability to easily contribute geofences to a common industry library.
+* API accessible: once reviewed and approved, geofences become immediately available via the BIC-SMDG Facility Code API.
+* Library download to embed the latest geofences into your system.
+
+For more information visit the BIC Website page for the [Global Container Geofence Library](https://www.bic-code.org/facility-codes/the-global-container-geofence-library/)
+
+### Whats the need to Standardize the geofences?
+
 Industry is increasing the use of smart container technology and smart devices within their supply chains to improve security, visibility, predictability, and plan more efficiently.  They transmit to the smart device’s management system, among other things, the location of the assets (such as shipping containers) to which they are attached or embedded, however the context of where the assets are at that point in time is often not known unless it is part of the transport plan and being within an existing virtual geographic boundary, a geofence.
 
 Many parties can be involved in a transport movement, and container owners may make use of several vendors of smart devices, along with shippers own smart devices being deployed.
 
 This leads to duplicated effort of drawing geofences for common touch points in the supply chain, and more importantly differences between definitions of the same facility (terminal, berth, container facility or other).
 
-The BIC identified that there was no guidance or methodology on how to draw these geofences or to improve quality when reviewing them, so launched a project to support the standardization of geofences for container facilities.  There were 3 elements to the project;
+The BIC identified that there was **no guidance or methodology on how to draw these geofences** or to improve quality and consistency when reviewing them, so launched a project to support the standardization of geofences for container facilities.  There were 3 elements to the project;
 
-1. Geofence White Paper - published under UN/CEFACT to establish a methodology to bring consistency to geofences for facilities.
-2. [Geofence Review Tool](https://geofence-review.bic-code.org) - a way in which container facilities could be reviewed by industry to form consensus on a geofence before approval against a given facility.
-3. Geofence Review Panel - providing a repeatable review and publication process for distributed teams to review geofences that related to their region or aligned with their association(s).
+1. **Geofence White Paper** - published under UN/CEFACT to establish a methodology to bring consistency to geofences for facilities.
+2. [**Geofence Review Tool**](https://geofence-review.bic-code.org) - a way in which container facilities could be reviewed by industry to form consensus on a geofence before approval against a given facility.
+3. [**Geofence Review Panel**](https://www.bic-code.org/facility-codes/the-global-container-geofence-library/) - providing a repeatable review and publication process for distributed teams to review geofences that related to their region or aligned with their association(s).
 
-The geofence library builds upon the [BIC](https://www.bic-code.org/facility-codes/) Facility Code and also the [SMDG](https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/) Terminal code, all facilities covered relate to those code lists, all common touch points within a supply chain.  In addition [IANA](https://intermodal.org) established a review process in North America and included the geofencing of truck queues for their members.
+The [global container geofence library](https://www.bic-code.org/facility-codes/the-global-container-geofence-library/) builds upon the [BIC](https://www.bic-code.org/facility-codes/) Facility Code and also the [SMDG](https://smdg.org/documents/smdg-code-lists/smdg-terminal-code-list/) Terminal code, all facilities covered relate to those code lists, all common touch points within a supply chain.  In addition [IANA](https://intermodal.org) established a review process in North America and included the geofencing of truck queues for their members.
 
 The codes and geofences are provided through API’s (Application Programming Interface) which allows machine to machine communication as well as acting as a source of truth, from which software applications can use when building services for the container shipping industry.
 
