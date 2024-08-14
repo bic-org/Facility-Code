@@ -527,7 +527,49 @@
                 }
             }
         },
-        "/facilities/match": {},
+        "/facilities/match": {
+            "post": {
+                "summary": "Match - Use Full Facility Details to find Facility",
+                "tags": [
+                    "Find Facility"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FacilitiesMatch"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "security": [
+                    {
+                        "BFCAuthorizer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "matches": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Facility"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/facilities/search": {
             "get": {
                 "summary": "Search - Use plain text in a Partial Search to find Facility",
