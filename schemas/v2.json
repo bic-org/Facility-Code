@@ -882,6 +882,44 @@
                         }
                     }
                 ]
+            },
+            "FeatureProperties": {
+                "title": "Additional Metadata for GeoJson Feature",
+                "required": [
+                    "trustGrade"
+                ],
+                "type": "object",
+                "properties": {
+                    "trustGrade": {
+                        "title": "Trust Grade",
+                        "description": "The knowledge of which the geofence is based on",
+                        "type": "string",
+                        "enum": [
+                            "FACILITY_PROVIDED",
+                            "LOCAL_KNOWLEDGE",
+                            "REVIEW_PANEL"
+                        ],
+                        "example": "REVIEW_PANEL"
+                    },
+                    "category": {
+                        "title": "Feature Category",
+                        "description": "At-least one feature must be 'FACILITY' if specifying categories, if no categories are specified the default is 'FACILITY'",
+                        "type": "string",
+                        "enum": [
+                            "FACILITY",
+                            "GATE",
+                            "BERTH",
+                            "TRUCK_QUEUE"
+                        ],
+                        "example": "FACILITY"
+                    },
+                    "remarks": {
+                        "title": "General Remarks",
+                        "description": "Additional information about the geofence",
+                        "type": "string",
+                        "example": "Facility X renamed to Facility Y"
+                    }
+                }
             }
         },
         "securitySchemes": {
