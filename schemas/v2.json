@@ -808,10 +808,14 @@
                 "required": [
                     "facility",
                     "operator",
-                    "unLocode"
+                    "unLocode",
+                    "codeProvider"
                 ],
                 "type": "object",
                 "properties": {
+                    "codeProvider": {
+                        "$ref": "#/components/schemas/CodeProvider"
+                    },
                     "unLocode": {
                         "$ref": "#/components/schemas/UnLocode"
                     },
