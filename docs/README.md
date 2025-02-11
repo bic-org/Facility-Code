@@ -26,7 +26,7 @@ We encourage you to intregrate the API into your software to look up Container F
 
 The Facility code API is documented on the [BIC Facility Code SwaggerHub](https://app.swaggerhub.com/apis/BIC-ORG/Facility-Codes/1.0.0)
 
-There is a Postman collection available to assist your integration work: [View the Postman Collection Documentation](https://documenter.getpostman.com/view/7925649/TVep98Nf)
+There is a Postman collection available to assist your integration work: [View the Postman Collection Documentation](https://documenter.getpostman.com/view/5836352/2sAYXBEyfF)
 
 To access the API you will need to register for a free account, follow the [getting started](bic-facility-code/api.md#getting-started-with-the-api) guide.
 

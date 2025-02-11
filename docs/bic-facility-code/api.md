@@ -8,7 +8,7 @@ description: Outline of how to get started with the API
 
 The first step is to register for access at the [BIC website ](https://www.bic-code.org/api-information-page/)for the API access, once you have done this you can start using the Facility Code API.
 
-Then you should download the Postman collection which is available to assist your integration work: [View the Postman Collection Documentation](https://documenter.getpostman.com/view/7925649/TVep98Nf) we strongly recommend the postman collection as it allows you to test the API and understand the data and endpoints before writing any code, you just need to register for access to start using it with examples.
+Then you should download the Postman collection which is available to assist your integration work: [View the Postman Collection Documentation](https://documenter.getpostman.com/view/5836352/2sAYXBEyfF) we strongly recommend the postman collection as it allows you to test the API and understand the data and endpoints before writing any code, you just need to register for access to start using it with examples.
 
 Finally you can start planning your API Integration once you are familiar with the API Endpoints available to you and to suit your purposes.
 
@@ -16,7 +16,7 @@ Finally you can start planning your API Integration once you are familiar with t
 
 The Facility code API is documented on the [BIC Facility Code SwaggerHub](https://app.swaggerhub.com/apis/BIC-ORG/Facility-Codes/1.0.0)
 
-There is a Postman collection available to assist your integration work: [View the Postman Collection Documentation](https://documenter.getpostman.com/view/7925649/TVep98Nf) we strongly recommend the postman collection as it allows you to test the API and understand the data and endpoints before writing any code, you just ned to register for access to start using it.
+There is a Postman collection available to assist your integration work: [View the Postman Collection Documentation](https://documenter.getpostman.com/view/5836352/2sAYXBEyfF) we strongly recommend the postman collection as it allows you to test the API and understand the data and endpoints before writing any code, you just ned to register for access to start using it.
 
 ## Access to the API
 
