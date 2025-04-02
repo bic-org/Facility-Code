@@ -402,7 +402,7 @@
                         "required": true,
                         "schema": {
                             "type": "number",
-                            "example": -74.006
+                            "example": -74.0060
                         }
                     },
                     {
@@ -478,7 +478,7 @@
                         "required": true,
                         "schema": {
                             "type": "number",
-                            "example": -74.006
+                            "example": -74.0060
                         }
                     },
                     {
@@ -718,6 +718,7 @@
             },
             "GeographicalFeature": {
                 "type": "object",
+                "description": "When provided will always include a 'Polygon', may also include a centroid of the geofence is also provided as a 'Point'.",
                 "properties": {
                     "type": {
                         "type": "string",
@@ -755,7 +756,7 @@
                         "$ref": "#/components/schemas/Address"
                     },
                     "formattedAddress": {
-                        "title": "Formatted Address String",
+                        "title": "Formatted Address - A single line address for the facility from the structured address.",
                         "type": "string",
                         "example": "123 Main St, Springfield, Illinois, 62704, United States of America"
                     },
@@ -769,6 +770,7 @@
             },
             "Facility": {
                 "type": "object",
+                "description": "Outlines the Facility, note if an 'aliasCode' is provided it indicates that a searched for code is deprecated in favour of the `code` see https://docs.bic-code.org/bic-facility-code/alias-codes",
                 "properties": {
                     "code": {
                         "$ref": "#/components/schemas/FacilityCode"
@@ -890,9 +892,16 @@
                                             {
                                                 "type": "object",
                                                 "required": [
+                                                    "type",
                                                     "coordinates"
                                                 ],
                                                 "properties": {
+                                                    "type": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                          "Polygon"
+                                                        ]
+                                                    },
                                                     "coordinates": {
                                                         "type": "array",
                                                         "items": {
@@ -919,6 +928,38 @@
                                                 }
                                             }
                                         ]
+                                    },
+                                    {
+                                        "description": "Point",
+                                        "externalDocs": {
+                                          "url": "https://tools.ietf.org/html/rfc7946#section-3.1.2"
+                                        },
+                                        "allOf": [
+                                          {
+                                            "type": "object",
+                                            "required": [
+                                              "type",
+                                              "coordinates"
+                                            ],
+                                            "properties": {
+                                              "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                  "Point"
+                                                ]
+                                              },
+                                              "coordinates": {
+                                                "type": "array",
+                                                "minItems": 2,
+                                                "maxItems": 3,
+                                                "items": {
+                                                  "type": "number"
+                                                },
+                                                "description": "A single position (longitude, latitude, and optional altitude)"
+                                              }
+                                            }
+                                          }
+                                        ]
                                     }
                                 ]
                             },
@@ -931,9 +972,6 @@
             },
             "FeatureProperties": {
                 "title": "Additional Metadata for GeoJson Feature",
-                "required": [
-                    "trustGrade"
-                ],
                 "type": "object",
                 "properties": {
                     "trustGrade": {
@@ -953,7 +991,6 @@
                         "type": "string",
                         "enum": [
                             "FACILITY",
-                            "GATE",
                             "BERTH",
                             "TRUCK_QUEUE"
                         ],
