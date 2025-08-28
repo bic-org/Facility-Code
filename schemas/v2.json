@@ -206,8 +206,7 @@
                         "name": "codeProvider",
                         "in": "query",
                         "schema": {
-                            "type": "string",
-                            "example": "BIC"
+                            "$ref": "#/components/schemas/CodeProvider"
                         }
                     }
                 ],
@@ -410,8 +409,7 @@
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "example": "GB"
+                            "$ref": "#/components/schemas/CountryCode"
                         }
                     },
                     {
@@ -428,11 +426,7 @@
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "enum": [
-                                "BIC",
-                                "SMDG"
-                            ]
+                            "$ref": "#/components/schemas/CodeProvider"
                         }
                     }
                 ],
@@ -603,8 +597,7 @@
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "example": "GB"
+                            "$ref": "#/components/schemas/CountryCode"
                         }
                     },
                     {
@@ -612,11 +605,7 @@
                         "in": "query",
                         "required": false,
                         "schema": {
-                            "type": "string",
-                            "enum": [
-                                "BIC",
-                                "SMDG"
-                            ]
+                            "$ref": "#/components/schemas/CodeProvider"
                         }
                     }
                 ],
@@ -677,9 +666,11 @@
             },
             "CountryCode": {
                 "title": "Country Code",
+                "description": "ISO 3166-1 alpha-2 country code",
                 "type": "string",
                 "maxLength": 2,
                 "minLength": 2,
+                "pattern": "^[A-Z]{2}$",
                 "example": "GB"
             },
             "UnLocode": {
