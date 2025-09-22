@@ -543,7 +543,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/FacilitiesMatch"
+                                "$ref": "#/components/schemas/FacilityMatch"
                             }
                         }
                     },
@@ -782,6 +782,10 @@
             },
             "FacilityDetails": {
                 "type": "object",
+                "required": [
+                    "name",
+                    "address"
+                ],
                 "properties": {
                     "name": {
                         "title": "Facility Name",
@@ -886,24 +890,6 @@
                     },
                     "operator": {
                         "$ref": "#/components/schemas/Operator"
-                    }
-                }
-            },
-            "FacilitiesMatch": {
-                "title": "Facility Match Schema",
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "$ref": "#/components/schemas/FacilityCode"
-                    },
-                    "codeProvider": {
-                        "$ref": "#/components/schemas/CodeProvider"
-                    },
-                    "unLocode": {
-                        "$ref": "#/components/schemas/UnLocode"
-                    },
-                    "facility": {
-                        "$ref": "#/components/schemas/FacilityDetails"
                     }
                 }
             },
