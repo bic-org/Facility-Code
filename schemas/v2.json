@@ -784,7 +784,8 @@
                 "type": "object",
                 "required": [
                     "name",
-                    "address"
+                    "address",
+                    "geographicalCoordinate"
                 ],
                 "properties": {
                     "name": {
@@ -890,6 +891,12 @@
                     },
                     "operator": {
                         "$ref": "#/components/schemas/Operator"
+                    },
+                    "codeRequested": {
+                        "title": "Code Requested",
+                        "type": "boolean",
+                        "description": "Indicates whether a new facility code was requested and created (true) or an existing facility was matched and returned (false)",
+                        "example": true
                     }
                 }
             },
