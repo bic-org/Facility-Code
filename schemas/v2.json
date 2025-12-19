@@ -17,12 +17,12 @@
     },
     "servers": [
         {
-            "url": "https://api.bic-code.org/uat-v2",
-            "description": "UAT Environment"
-        },
-        {
             "url": "https://api.bic-code.org/v2",
             "description": "Production Environment"
+        },
+        {
+            "url": "https://api.bic-code.org/uat-v2",
+            "description": "UAT Environment"
         }
     ],
     "paths": {
