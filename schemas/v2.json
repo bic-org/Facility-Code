@@ -900,6 +900,53 @@
                     }
                 }
             },
+            "FacilityMatch": {
+                "title": "Facility Post Schema",
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/FacilityCode"
+                    },
+                    "countryCode": {
+                        "$ref": "#/components/schemas/CountryCode"
+                    },
+                    "codeProvider": {
+                        "$ref": "#/components/schemas/CodeProvider"
+                    },
+                    "unLocode": {
+                        "$ref": "#/components/schemas/UnLocode"
+                    },
+                    "facility": {
+                        "$ref": "#/components/schemas/FacilityDetails"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/Operator"
+                    }
+                },
+                "example": {
+                    "code": "GBLIVYULN",
+                    "codeProvider": "BIC",
+                    "countryCode": "GB",
+                    "unLocode": "GBLIV",
+                    "facility": {
+                        "name": "ACME Limited",
+                        "address": {
+                            "street": "Saturn Business Park, School Lane",
+                            "city": "Liverpool",
+                            "state": "Merseyside",
+                            "postcode": "L34 9GJ",
+                            "country": "United Kingdom"
+                        },
+                        "geographicalCoordinate": {
+                            "latitude": "53.461992",
+                            "longitude": "-2.87132320000000"
+                        }
+                    },
+                    "operator": {
+                        "name": "ACME Limited"
+                    }
+                }
+            },
             "Feature": {
                 "description": "GeoJSon 'Feature' object",
                 "externalDocs": {
