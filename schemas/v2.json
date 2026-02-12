@@ -813,7 +813,7 @@
             },
             "Facility": {
                 "type": "object",
-                "description": "Outlines the Facility, note if an 'aliasCode' is provided it indicates that a searched for code is deprecated in favour of the `code` see https://docs.bic-code.org/bic-facility-code/alias-codes",
+                "description": "Outlines the Facility, note if an 'aliasCode' is provided it indicates that a searched for code is deprecated in favour of the `code` see https://docs.bic-code.org/guides/bic-facility-code/alias-codes",
                 "properties": {
                     "code": {
                         "$ref": "#/components/schemas/FacilityCode"
