@@ -129,11 +129,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             },
             "patch": {
                 "summary": "Update - Change Facility Details",
@@ -179,11 +175,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             }
         },
         "/facilities/{code}": {
@@ -222,11 +214,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             }
         },
         "/facilities/byLocation/{unLocode}/{codeProvider}": {
@@ -268,11 +256,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             }
         },
         "/facilities/byCountry/{countryCode}/{codeProvider}": {
@@ -316,11 +300,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             }
         },
         "/facilities/byName/{countryCode}": {
@@ -372,11 +352,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             }
         },
         "/facilities/nearby": {
@@ -455,11 +431,7 @@
                         }
                     }
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ]
+                "security": []
             }
         },
         "/facilities/geofence": {
@@ -497,11 +469,7 @@
                         }
                     }
                 ],
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ],
+                "security": [],
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -549,11 +517,7 @@
                     },
                     "required": true
                 },
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ],
+                "security": [],
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -609,11 +573,7 @@
                         }
                     }
                 ],
-                "security": [
-                    {
-                        "BFCAuthorizer": []
-                    }
-                ],
+                "security": [],
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -1084,11 +1044,6 @@
             }
         },
         "securitySchemes": {
-            "BFCAuthorizer": {
-                "type": "apiKey",
-                "name": "Authorization",
-                "in": "header"
-            },
             "basicAuth": {
                 "type": "http",
                 "scheme": "basic"
