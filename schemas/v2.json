@@ -25,6 +25,45 @@
             "description": "UAT Environment"
         }
     ],
+    "x-amazon-apigateway-gateway-responses": {
+        "MISSING_AUTHENTICATION_TOKEN": {
+            "statusCode": 404,
+            "responseParameters": {
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+            },
+            "responseTemplates": {
+                "application/json": "{\"status\":404,\"message\":\"Endpoint not found. See the documentation for the list of available endpoints.\",\"documentation\":\"https://docs.bic-code.org\",\"openapi\":\"https://docs.bic-code.org/bfc-api-v2.json\",\"support\":\"bic@bic-code.org\"}"
+            }
+        },
+        "UNAUTHORIZED": {
+            "statusCode": 401,
+            "responseParameters": {
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+            },
+            "responseTemplates": {
+                "application/json": "{\"status\":401,\"message\":\"Missing or invalid Authorization header. Use 'Authorization: Bearer <accessToken>' from POST /oauth/token.\",\"documentation\":\"https://docs.bic-code.org/guides/bic-facility-code/api#authentication\"}"
+            }
+        },
+        "ACCESS_DENIED": {
+            "statusCode": 403,
+            "responseParameters": {
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+            },
+            "responseTemplates": {
+                "application/json": "{\"status\":403,\"message\":\"You do not have permission to access this resource.\",\"documentation\":\"https://docs.bic-code.org/guides/bic-facility-code/api\"}"
+            }
+        },
+        "DEFAULT_4XX": {
+            "responseParameters": {
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+            }
+        },
+        "DEFAULT_5XX": {
+            "responseParameters": {
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'"
+            }
+        }
+    },
     "paths": {
         "/oauth/token": {
             "post": {
@@ -34,7 +73,7 @@
                 ],
                 "security": [
                     {
-                        "basicAuth": []
+                        "BasicAuth": []
                     }
                 ],
                 "responses": {
@@ -129,7 +168,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "summary": "Update - Change Facility Details",
@@ -175,7 +218,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             }
         },
         "/facilities/{code}": {
@@ -214,7 +261,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             }
         },
         "/facilities/byLocation/{unLocode}/{codeProvider}": {
@@ -256,7 +307,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             }
         },
         "/facilities/byCountry/{countryCode}/{codeProvider}": {
@@ -300,7 +355,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             }
         },
         "/facilities/byName/{countryCode}": {
@@ -352,7 +411,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             }
         },
         "/facilities/nearby": {
@@ -431,7 +494,11 @@
                         }
                     }
                 },
-                "security": []
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
             }
         },
         "/facilities/geofence": {
@@ -469,7 +536,11 @@
                         }
                     }
                 ],
-                "security": [],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -517,7 +588,11 @@
                     },
                     "required": true
                 },
-                "security": [],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -573,7 +648,11 @@
                         }
                     }
                 ],
-                "security": [],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -1030,7 +1109,9 @@
                         "enum": [
                             "FACILITY",
                             "BERTH",
-                            "TRUCK_QUEUE"
+                            "TRUCK_QUEUE",
+                            "GATE",
+                            "ASSOCIATED_RAIL"
                         ],
                         "example": "FACILITY"
                     },
@@ -1044,9 +1125,16 @@
             }
         },
         "securitySchemes": {
-            "basicAuth": {
+            "BasicAuth": {
                 "type": "http",
-                "scheme": "basic"
+                "scheme": "basic",
+                "description": "Used only on `POST /oauth/token` to exchange your `username:password` for a JWT. All other endpoints require Bearer authentication."
+            },
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "description": "Required on every endpoint except `POST /oauth/token`. Use the `accessToken` returned by `/oauth/token` as `Authorization: Bearer <accessToken>`."
             }
         }
     }
