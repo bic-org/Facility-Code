@@ -362,6 +362,64 @@
                 ]
             }
         },
+        "/facilities/byLastUpdated/{codeProvider}": {
+            "get": {
+                "summary": "Find Facilities Last Updated Within a Date Range",
+                "description": "Returns facilities whose last updated datetime falls within the provided range. At least one of 'updatedAfter' or 'updatedBefore' must be provided. Values may be an ISO 8601 date (YYYY-MM-DD) or datetime; a date-only 'updatedBefore' is inclusive of the whole day.",
+                "tags": [
+                    "Find Facility"
+                ],
+                "parameters": [
+                    {
+                        "name": "codeProvider",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "BIC"
+                        }
+                    },
+                    {
+                        "name": "updatedAfter",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "2024-01-01"
+                        }
+                    },
+                    {
+                        "name": "updatedBefore",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "2024-06-30"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Facility"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ]
+            }
+        },
         "/facilities/byName/{countryCode}": {
             "get": {
                 "summary": "Name - Find Facilities By Country Code and Name",
@@ -865,6 +923,10 @@
                     },
                     "countryCode": {
                         "$ref": "#/components/schemas/CountryCode"
+                    },
+                    "facilityManaged": {
+                        "type": "boolean",
+                        "description": "Indicates whether the facility is actively managed."
                     },
                     "unLocode": {
                         "$ref": "#/components/schemas/UnLocode"
