@@ -365,7 +365,7 @@
         "/facilities/byLastUpdated/{codeProvider}": {
             "get": {
                 "summary": "Find Facilities Last Updated Within a Date Range",
-                "description": "Returns facilities whose last updated datetime falls within the provided range. At least one of 'updatedAfter' or 'updatedBefore' must be provided. Values may be an ISO 8601 date (YYYY-MM-DD) or datetime; a date-only 'updatedBefore' is inclusive of the whole day.",
+                "description": "Returns facilities whose last updated datetime falls within the provided range. Both 'updatedAfter' and 'updatedBefore' must be provided and may be no more than six months apart; a wider range returns a validation error. Values may be an ISO 8601 date (YYYY-MM-DD) or datetime; a date-only 'updatedBefore' is inclusive of the whole day. Each returned facility includes a 'lastUpdated' datetime.",
                 "tags": [
                     "Find Facility"
                 ],
@@ -382,7 +382,8 @@
                     {
                         "name": "updatedAfter",
                         "in": "query",
-                        "required": false,
+                        "required": true,
+                        "description": "Start of the range, must be no more than six months before 'updatedBefore'",
                         "schema": {
                             "type": "string",
                             "example": "2024-01-01"
@@ -391,7 +392,8 @@
                     {
                         "name": "updatedBefore",
                         "in": "query",
-                        "required": false,
+                        "required": true,
+                        "description": "End of the range, must be no more than six months after 'updatedAfter'",
                         "schema": {
                             "type": "string",
                             "example": "2024-06-30"
@@ -406,7 +408,39 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Facility"
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/components/schemas/Facility"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "lastUpdated": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "The datetime the facility was last updated",
+                                                        "example": "2024-03-15T10:30:00Z"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "description": "Plain text explanation of issue",
+                                            "type": "string",
+                                            "example": "Date range between 'updatedAfter' and 'updatedBefore' must not exceed six months"
+                                        }
                                     }
                                 }
                             }
