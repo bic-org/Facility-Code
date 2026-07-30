@@ -271,6 +271,7 @@
         "/facilities/byLocation/{unLocode}/{codeProvider}": {
             "get": {
                 "summary": "UNLocode - Find Facilities By UNLocode and Code Provider",
+                "description": "Returns facilities at the given UNLocode. By default the full result set is returned as an array; if it is too large for a single response, what fits is returned as the paged envelope with a 'nextToken'. Providing 'limit' (or 'nextToken') switches to paged responses: an object containing 'facilities' (up to 'limit' results, max 1000) and 'nextToken', an opaque token passed back on the next request to continue where the previous page ended ('nextToken' is null on the final page).",
                 "tags": [
                     "Find Facility"
                 ],
@@ -287,6 +288,25 @@
                         "name": "codeProvider",
                         "in": "path",
                         "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of facilities per page (1-1000). Providing this switches to a paged response envelope.",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    },
+                    {
+                        "name": "nextToken",
+                        "in": "query",
+                        "required": false,
+                        "description": "Opaque pagination token returned by a previous paged response. Pass it back unchanged to retrieve the next page.",
                         "schema": {
                             "type": "string"
                         }
@@ -317,6 +337,7 @@
         "/facilities/byCountry/{countryCode}/{codeProvider}": {
             "get": {
                 "summary": "Country - Find Facilities By Country Code and Code Provider",
+                "description": "Returns facilities in the given country. By default the full result set is returned as an array; if it is too large for a single response, what fits is returned as the paged envelope with a 'nextToken'. Providing 'limit' (or 'nextToken') switches to paged responses: an object containing 'facilities' (up to 'limit' results, max 1000) and 'nextToken', an opaque token passed back on the next request to continue where the previous page ended ('nextToken' is null on the final page).",
                 "tags": [
                     "Find Facility"
                 ],
@@ -337,6 +358,25 @@
                         "schema": {
                             "type": "string",
                             "example": "BIC"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of facilities per page (1-1000). Providing this switches to a paged response envelope.",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    },
+                    {
+                        "name": "nextToken",
+                        "in": "query",
+                        "required": false,
+                        "description": "Opaque pagination token returned by a previous paged response. Pass it back unchanged to retrieve the next page.",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -365,7 +405,7 @@
         "/facilities/byLastUpdated/{codeProvider}": {
             "get": {
                 "summary": "Find Facilities Last Updated Within a Date Range",
-                "description": "Returns facilities whose last updated datetime falls within the provided range. Both 'updatedAfter' and 'updatedBefore' must be provided and may be no more than six months apart; a wider range returns a validation error. Values may be an ISO 8601 date (YYYY-MM-DD) or datetime; a date-only 'updatedBefore' is inclusive of the whole day. Each returned facility includes a 'lastUpdated' datetime. Optionally pass 'geofenced=true' to return only facilities with a geofence, or 'geofenced=false' for only facilities without one.",
+                "description": "Returns facilities whose last updated datetime falls within the provided range. Both 'updatedAfter' and 'updatedBefore' must be provided and may be no more than six months apart; a wider range returns a validation error. Values may be an ISO 8601 date (YYYY-MM-DD) or datetime; a date-only 'updatedBefore' is inclusive of the whole day. Each returned facility includes a 'lastUpdated' datetime. By default the full result set is returned as an array; if it is too large for a single response, what fits is returned as the paged envelope with a 'nextToken'. Optionally pass 'geofenced=true' to return only facilities with a geofence, or 'geofenced=false' for only facilities without one. Providing 'limit' (or 'nextToken') switches to paged responses: an object containing 'facilities' (up to 'limit' results, max 1000) and 'nextToken', an opaque token passed back on the next request to continue where the previous page ended ('nextToken' is null on the final page).",
                 "tags": [
                     "Find Facility"
                 ],
@@ -407,6 +447,25 @@
                         "schema": {
                             "type": "boolean",
                             "example": true
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of facilities per page (1-1000). Providing this switches to a paged response envelope.",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    },
+                    {
+                        "name": "nextToken",
+                        "in": "query",
+                        "required": false,
+                        "description": "Opaque pagination token returned by a previous paged response. Pass it back unchanged to retrieve the next page.",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -467,6 +526,7 @@
         "/facilities/byName/{countryCode}": {
             "get": {
                 "summary": "Name - Find Facilities By Country Code and Name",
+                "description": "Returns facilities in the given country whose name contains the search term. By default the full result set is returned as an array; if it is too large for a single response, what fits is returned as the paged envelope with a 'nextToken'. Providing 'limit' (or 'nextToken') switches to paged responses: an object containing 'facilities' (up to 'limit' results, max 1000) and 'nextToken', an opaque token passed back on the next request to continue where the previous page ended ('nextToken' is null on the final page).",
                 "tags": [
                     "Find Facility"
                 ],
@@ -495,6 +555,25 @@
                         "schema": {
                             "type": "string",
                             "example": "BIC"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of facilities per page (1-1000). Providing this switches to a paged response envelope.",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    },
+                    {
+                        "name": "nextToken",
+                        "in": "query",
+                        "required": false,
+                        "description": "Opaque pagination token returned by a previous paged response. Pass it back unchanged to retrieve the next page.",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
