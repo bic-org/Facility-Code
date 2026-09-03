@@ -864,6 +864,80 @@
                     }
                 }
             }
+        },
+        "/facilities/request": {
+            "post": {
+                "summary": "Change Request - Submit/amend an edit to an existing facility",
+                "description": "Submit (or same-day amend) a change request for an existing facility: any mix of field changes, a proposed coordinate, and/or a proposed geofence (GeoJSON FeatureCollection). Requires the contributor group. Body: facilityCode, codeProvider, trustGrade, and at least one of fieldChanges / proposedCoordinate / geoJson.",
+                "tags": [
+                    "Change Requests"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Change request payload",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "201 created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/facilities/request/new": {
+            "post": {
+                "summary": "Change Request - Propose a brand-new facility",
+                "description": "Propose a new facility. Body: proposedFacility (POST /facilities shape, unLocode mandatory, no code), optional geoJson boundary, trustGrade, remarks. A candidate code is allocated and returned; it is NOT accepted until an approver confirms the request.",
+                "tags": [
+                    "Change Requests"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Proposed facility payload",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "201 created (candidateCode returned)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1305,6 +1379,156 @@
                         "description": "Additional information about the geofence",
                         "type": "string",
                         "example": "Facility X renamed to Facility Y"
+                    }
+                }
+            },
+            "TrustGrade": {
+                "title": "Trust Grade",
+                "description": "The provenance of the requested change, declared by the requester. Any trustGrade values inside submitted GeoJSON feature properties are ignored and replaced server-side with this value.",
+                "type": "string",
+                "enum": [
+                    "FACILITY_PROVIDED",
+                    "LOCAL_KNOWLEDGE",
+                    "REVIEW_PANEL"
+                ],
+                "example": "LOCAL_KNOWLEDGE"
+            },
+            "FieldChange": {
+                "title": "Field Change",
+                "description": "One proposed text-field change. 'before' is the value as seen at submission time so reviewers can detect the record changing underneath the request.",
+                "type": "object",
+                "required": [
+                    "field",
+                    "after"
+                ],
+                "properties": {
+                    "field": {
+                        "type": "string",
+                        "description": "The facility field being changed",
+                        "enum": [
+                            "name",
+                            "street",
+                            "city",
+                            "state",
+                            "postcode",
+                            "country"
+                        ],
+                        "example": "city"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Optional display label for the field",
+                        "example": "City"
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "The value as seen when the change was proposed",
+                        "example": "Rotterdam"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "The proposed new value",
+                        "example": "Rotterdam-Zuid"
+                    }
+                }
+            },
+            "ChangeRequestPost": {
+                "title": "Change Request Post Schema",
+                "description": "A change request against an EXISTING facility. Must include at least one of fieldChanges, proposedCoordinate or geoJson. One request per facility per user per day: re-submitting the same day amends the earlier request in place.",
+                "type": "object",
+                "required": [
+                    "facilityCode",
+                    "codeProvider",
+                    "trustGrade"
+                ],
+                "properties": {
+                    "facilityCode": {
+                        "$ref": "#/components/schemas/FacilityCode"
+                    },
+                    "codeProvider": {
+                        "$ref": "#/components/schemas/CodeProvider"
+                    },
+                    "trustGrade": {
+                        "$ref": "#/components/schemas/TrustGrade"
+                    },
+                    "remarks": {
+                        "type": "string",
+                        "maxLength": 150,
+                        "description": "Optional free-text note shown to reviewers (sanitised, max 150 characters)",
+                        "example": "Terminal was renamed in Q2 2026"
+                    },
+                    "fieldChanges": {
+                        "type": "array",
+                        "description": "Proposed name/address changes",
+                        "items": {
+                            "$ref": "#/components/schemas/FieldChange"
+                        }
+                    },
+                    "proposedCoordinate": {
+                        "type": "object",
+                        "description": "Proposed new facility coordinate (WGS-84 decimal degrees)",
+                        "required": [
+                            "latitude",
+                            "longitude"
+                        ],
+                        "properties": {
+                            "latitude": {
+                                "type": "number",
+                                "example": 51.885
+                            },
+                            "longitude": {
+                                "type": "number",
+                                "example": 4.286
+                            }
+                        }
+                    },
+                    "geoJson": {
+                        "description": "Proposed geofence as a GeoJSON FeatureCollection (Polygon features only; coordinates in [longitude, latitude] order)",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/GeographicalFeature"
+                            }
+                        ]
+                    }
+                }
+            },
+            "NewFacilityRequestPost": {
+                "title": "New Facility Request Post Schema",
+                "description": "A proposal for a brand-new facility. The proposedFacility uses the same shape as POST /facilities (unLocode is mandatory, no code is posted). A candidate facility code is allocated and returned immediately, but it is NOT an accepted code until a reviewer confirms the request.",
+                "type": "object",
+                "required": [
+                    "proposedFacility",
+                    "trustGrade"
+                ],
+                "properties": {
+                    "proposedFacility": {
+                        "$ref": "#/components/schemas/FacilityPost"
+                    },
+                    "geoJson": {
+                        "description": "Proposed geofence as a GeoJSON FeatureCollection (may also be supplied as proposedFacility.facility.geographicalFeature)",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/GeographicalFeature"
+                            }
+                        ]
+                    },
+                    "trustGrade": {
+                        "$ref": "#/components/schemas/TrustGrade"
+                    },
+                    "proposerRole": {
+                        "type": "string",
+                        "description": "Why the requester is proposing this facility: they are the facility owner/operator, or they act on the owner's behalf",
+                        "enum": [
+                            "OWNER",
+                            "ON_BEHALF"
+                        ],
+                        "example": "OWNER"
+                    },
+                    "remarks": {
+                        "type": "string",
+                        "maxLength": 150,
+                        "description": "Optional free-text note shown to reviewers (sanitised, max 150 characters)",
+                        "example": "New barge terminal, opened Q2 2026"
                     }
                 }
             }
