@@ -673,6 +673,23 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "description": "Plain text explanation of issue",
+                                            "type": "string",
+                                            "example": "Radius must be a valid number of metres."
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
